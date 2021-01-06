@@ -1,0 +1,42 @@
+<mat-card *ngIf="!(authService.user | async)">
+    <mat-card-content>
+        <h3 class="title text-center">Give us a try!</h3>
+        <p class="subtitle text-center">Start today and help the outdoor community! 100% risk free!</p>
+
+        <div class="form">
+            <mat-form-field appearance="outline" class="no-padding">
+                <mat-label>Email</mat-label>
+                <input matInput [(ngModel)]="email" type="text">
+            </mat-form-field>
+            <button mat-raised-button color="primary">
+                Get Started
+                <fa-icon [icon]="['fas', 'chevron-right']" class="icon-right"></fa-icon>
+            </button>
+        </div>
+    </mat-card-content>
+</mat-card>
+
+<div class="content">
+    <!-- TODO: need to add/edit links -->
+    <div class="socials">
+        <fa-icon [icon]="['fab', 'twitter-square']"></fa-icon>
+        <fa-icon [icon]="['fab', 'instagram-square']"></fa-icon>
+        <fa-icon [icon]="['fab', 'facebook-square']"></fa-icon>
+        <fa-icon [icon]="['fab', 'linkedin']"></fa-icon>
+    </div>
+    <span class="links">
+        <a routerLink="/about">About</a>
+        &#8901;
+        <a routerLink="/map">Map</a>
+        &#8901;
+        <a routerLink="/about">Contact</a>
+    </span>
+    <div class="terms">
+        <a routerLink="/about">Terms of Service</a>
+        &#8901;
+        <a routerLink="/policy">Privacy Policy</a>
+    </div>
+    <div class="copyright">
+        © iQuench 2020. All Rights Reserved. 
+    </div>
+</div>

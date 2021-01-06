@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "project-water-282502"
+  },
+  "targets": {
+    "project-water-282502": {
+      "hosting": {
+        "production": [
+          "project-water-282502"
+        ],
+        "beta": [
+          "iquench-beta"
+        ]
+      }
+    }
+  }
+}

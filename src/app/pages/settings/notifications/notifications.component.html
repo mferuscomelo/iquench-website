@@ -1,0 +1,54 @@
+<mat-card>
+    <mat-card-title>Notification Settings</mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="settingsForm">
+            <div class="divider">
+                <hr>
+                <small class="text">Email Notifications</small>
+                <hr>
+            </div>
+
+            <!-- newFountainNotification -->
+            <div class="toggle-container">
+                <p>When a new fountain is added near me</p>
+                <mat-slide-toggle formControlName="newFountainNotification" color="primary"></mat-slide-toggle>
+            </div>
+
+            <!-- userFountainNotification -->
+            <div class="toggle-container">
+                <p>When my fountain is added to the map</p>
+                <mat-slide-toggle formControlName="userFountainNotification" color="primary"></mat-slide-toggle>
+            </div>
+
+            <!-- feedbackNotification -->
+            <div class="toggle-container">
+                <p>For my feedback</p>
+                <mat-slide-toggle formControlName="feedbackNotification" color="primary"></mat-slide-toggle>
+            </div>
+
+            <!-- <input formControlName="honeyPot" class="hidden" type="text" /> -->
+        </form>
+    </mat-card-content>
+
+    <mat-card-actions align="end">
+        <button mat-button color="warn" (click)="setData()">
+            Discard
+        </button>
+        <button 
+            mat-raised-button 
+            color="primary"
+            [disabled]="!canUpdate"
+            (click)="submit()"
+            class="g-recaptcha" 
+            data-sitekey="6LefIAoaAAAAAEwDV77voA1mu5LskiQdBlrVAoOm" 
+            data-callback="submit"
+            data-action="submit">
+            Update
+        </button>
+    </mat-card-actions>
+</mat-card>
+
+<div class="spinner flex-center" *ngIf="isLoading">
+    <mat-spinner></mat-spinner>
+    <p class="text-center">Logging In</p>
+</div>

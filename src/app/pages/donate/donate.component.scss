@@ -1,0 +1,53 @@
+@import "src/styles/variables.scss";
+
+section {
+    margin: 75px auto;
+
+    &.hero {
+        height: 100vh;
+        width: 100%;
+    
+        .column-container {
+            .column {
+                .container {
+                    width: 100%;
+                    padding: 0 50px;
+    
+                    .title {            
+                        color: $blue-color;
+                    }
+                    
+                    .subtitle {
+                        font-size: 1.5rem;
+                        color: $grey-color;
+                    }
+
+                    button {
+                        margin-top: 25px;
+                    }
+                }
+            }
+        }
+    }
+
+    &.thank-you {
+
+        .column {
+            display: flex;
+
+            &:first-child {
+                justify-content: flex-start;
+                align-items: flex-start;
+            }
+
+            &:last-child {
+                justify-content: flex-end;
+                align-items: flex-end;
+            }
+
+            p {
+                width: 95%;
+            }
+        }
+    }
+}

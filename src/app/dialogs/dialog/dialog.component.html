@@ -1,0 +1,35 @@
+<icon-error class="icon" *ngIf="data.icon == 'error'"></icon-error>
+<icon-info class="icon" *ngIf="data.icon == 'info'"></icon-info>
+<icon-success class="icon" *ngIf="data.icon == 'success'"></icon-success>
+<icon-warning class="icon" *ngIf="data.icon == 'warning'"></icon-warning>
+
+<!-- <i *ngIf="data.fa_icon != null" class="{{ data.fa_icon }} {{ data.fa_icon_class }}"></i> -->
+<!-- <fa-icon *ngIf="data.fa_icon" [icon]="['fas', 'chevron-right']" class="icon-right"></fa-icon> -->
+
+<h1 class="text-center">{{ data.title }}</h1>
+
+<p class="text-center" *ngIf="data.text != null">{{ data.text }}</p>
+
+<div class="buttons">
+    <button 
+        mat-button 
+        mat-dialog-close
+        color="warn"
+        [mat-dialog-close]="{ 'doNotShowAgain' : data.doNotShowAgain, 'confirmButtonClicked': false, 'cancelButtonClicked': true }" 
+        *ngIf="data.cancelButtonText">
+        {{ data.cancelButtonText }}
+    </button>
+    <button 
+        mat-raised-button 
+        color="primary"
+        [mat-dialog-close]="{ 'doNotShowAgain' : data.doNotShowAgain, 'confirmButtonClicked': true, 'cancelButtonClicked': false }" 
+        cdkFocusInitial>
+        {{ data.confirmButtonText }}
+    </button>
+    <!-- <ion-button class="medium" color="fancy" [mat-dialog-close]="{ 'doNotShowAgain' : data.doNotShowAgain, 'confirmButtonClicked': true, 'cancelButtonClicked': false }" cdkFocusInitial>{{ data.confirmButtonText }}</ion-button>
+    <ion-button class="medium" color="danger" fill="outline" [mat-dialog-close]="{ 'doNotShowAgain' : data.doNotShowAgain, 'confirmButtonClicked': false, 'cancelButtonClicked': true }" *ngIf="data.showCancelButton" mat-dialog-close>{{ data.cancelButtonText }}</ion-button> -->
+</div>
+
+<span *ngIf="data.showDoNotShowAgainCheckbox" class="text-center">
+    <mat-checkbox [(ngModel)]="data.doNotShowAgain">Do not show this message again</mat-checkbox>
+</span>

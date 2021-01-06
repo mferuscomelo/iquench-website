@@ -1,0 +1,105 @@
+<mat-card>
+    <mat-card-title>Profile Settings</mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="settingsForm">
+            <div class="divider">
+                <hr>
+                <small class="text">General Settings</small>
+                <hr>
+            </div>
+
+            <!-- Language -->
+            <mat-form-field appearance="outline">
+                <mat-label>Language</mat-label>
+                <mat-select formControlName="language">
+                    <mat-option value="English">
+                        <img class="flag-image" src="assets/images/settings/usa-round-flag.png" alt="usa flag">
+                        English
+                    </mat-option>
+                    <mat-option value="German">
+                        <img class="flag-image" src="assets/images/settings/germany-round-flag.png" alt="german flag">
+                        German
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="language!.hasError('required')">
+                    Language is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <!-- Units -->
+            <mat-form-field appearance="outline">
+                <mat-label>Units</mat-label>
+                <mat-select formControlName="units">
+                    <mat-option value="Imperial">
+                        Imperial
+                    </mat-option>
+                    <mat-option value="Metric">
+                        Metric
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="units!.hasError('required')">
+                    Units is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <!-- Privacy -->
+            <div class="toggle-container">
+                <p>Make my profile private</p>
+                <mat-slide-toggle formControlName="isPrivate" color="primary"></mat-slide-toggle>
+            </div>
+
+            <div class="divider">
+                <hr>
+                <small class="text">Profile Settings</small>
+                <hr>
+            </div>
+
+            <!-- Full Name -->
+            <mat-form-field appearance="outline">
+                <mat-label>Full Name</mat-label>
+                <input matInput formControlName="displayName" type="text">
+                <mat-error *ngIf="displayName?.hasError('required')">
+                    Full Name is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <!-- Email -->
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" type="email">
+                <mat-hint align="end" (click)="openUpdateEmailDialog()">Change</mat-hint>
+            </mat-form-field>
+
+            <!-- Password -->
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password" type="password">
+                <mat-hint align="end" (click)="openUpdatePasswordDialog()">Change</mat-hint>
+            </mat-form-field>
+
+            <!-- <input formControlName="honeyPot" class="hidden" type="text" /> -->
+        </form>
+    </mat-card-content>
+
+    <mat-card-actions align="end">
+        <button mat-button color="warn">
+            Discard
+        </button>
+        <button 
+            mat-raised-button 
+            color="primary"
+            [disabled]="!settingsForm.dirty"
+            (click)="submit()"
+            class="g-recaptcha" 
+            data-sitekey="6LefIAoaAAAAAEwDV77voA1mu5LskiQdBlrVAoOm" 
+            data-callback="submit"
+            data-action="submit">
+            Update
+        </button>
+    </mat-card-actions>
+</mat-card>
+
+<div class="spinner flex-center" *ngIf="isLoading">
+    <mat-spinner></mat-spinner>
+    <p class="text-center">Logging In</p>
+</div>

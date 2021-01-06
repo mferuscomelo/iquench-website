@@ -1,0 +1,71 @@
+@import "src/styles/variables.scss";
+
+section {
+    margin-top: 75px;
+
+    display: grid;
+    grid-template: 1fr / 1fr 1fr 1fr 1fr;
+    column-gap: 15px;
+
+    .menu {
+        grid-row: 1;
+        grid-column: 1;
+
+        .fancy-card {
+            border-radius: $border-radius;
+            border: 1px solid $blue-color;
+
+            background-color: white;
+            box-shadow: $shadow;
+
+            padding: 20px 0;
+
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+
+            mat-card-title {
+                padding-left: 20px;
+            }
+        }
+        
+
+        a {
+            padding: 5px 20px;
+            color: $black-color;
+            position: relative;
+            width: calc(100% - 40px);
+            font-size: 16px;
+            text-align: left;
+            cursor: pointer;
+
+            &.active {
+                color: $blue-color;
+                background-color: $blue-color-extra-light;
+                
+                &:before {
+                    content: '';
+                    width: 3px;
+                    height: 100%;
+
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+
+                    background-color: $blue-color;
+                }
+            }
+
+            &:hover {
+                color: $blue-color;
+                background-color: $blue-color-extra-light;
+            }
+        }
+    }
+
+    .settings-container {
+        grid-row: 1;
+        grid-column: 2 / -1;
+    }
+}

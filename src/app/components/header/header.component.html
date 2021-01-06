@@ -1,0 +1,79 @@
+<nav class="desktop">
+    <a routerLink="/" routerLinkActive="active" class="logo flex-center">
+        <img src="/assets/logo.svg" alt="Logo">
+    </a>
+
+    <ul class="no-margin no-padding">
+        <li class="nav-link">
+            <a routerLink="/about" routerLinkActive="active" class="link">
+                About
+            </a>
+        </li>
+
+        <li class="nav-link">
+            <a routerLink="/map" routerLinkActive="active" class="link">
+                Map
+            </a>
+        </li>
+
+        <li class="nav-link">
+            <a routerLink="/leaderboard" routerLinkActive="active" class="link">
+                Leaderboard
+            </a>
+        </li>
+
+        <li class="nav-link">
+            <a routerLink="/donate" routerLinkActive="active" class="link">
+                Donate
+            </a>
+        </li>
+    </ul>
+
+    <ul *ngIf="!(authService.user | async)" class="no-margin no-padding">
+        <li (click)="login()" class="nav-link">
+            <a class="link" href="javascript:void(0)">
+                Log In
+            </a>
+        </li>
+        <li (click)="signup()" class="nav-link">
+            <button mat-raised-button color="primary">
+                Sign Up
+            </button>
+        </li>
+    </ul>
+
+    <ul *ngIf="authService.user | async" class="no-margin no-padding">
+        <li class="nav-link">
+            <div class="dropdown">
+                <div class="dropbtn" (click)="toggleDropdown()">
+                    <fa-icon [icon]="['fas', 'user-circle']"></fa-icon>
+                </div>
+
+                <div class="dropdown-content">
+                    <div class="dropdown-text">
+                        Hello, {{ (authService.user | async)?.displayName }}
+                    </div>
+
+                    <a class="dropdown-link" routerLink="/dashboard" routerLinkActive="active">
+                        <fa-icon [icon]="['fas', 'chart-pie']"></fa-icon>
+                        Dashboard
+                    </a>
+
+                    <a class="dropdown-link" routerLink="/settings" routerLinkActive="active">
+                        <fa-icon [icon]="['fas', 'cog']"></fa-icon>
+                        Settings
+                    </a>
+
+                    <a class="dropdown-link" (click)="authService.logOut()">
+                        <fa-icon [icon]="['fas', 'sign-out-alt']"></fa-icon>
+                        Log Out
+                    </a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</nav>
+
+<nav class="mobile">
+
+</nav>

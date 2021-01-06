@@ -23,7 +23,6 @@ describe('AppComponent', () => {
   it(`should have as title 'iquench-website'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('iquench-website');
   });
 
   it('should render title', () => {

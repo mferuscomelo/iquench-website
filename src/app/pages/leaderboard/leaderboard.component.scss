@@ -1,0 +1,38 @@
+@import "src/styles/variables.scss";
+
+section {
+    margin-top: 75px;
+}
+
+.leaderboard-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+    width: 90%;
+    max-width: 500px;
+    min-width: 350px;
+    background: $blue-color-extra-light;
+    margin: 15px auto !important;
+    border: 1px solid $blue-color;
+
+    &:nth-of-type(1) {
+        background: linear-gradient(90deg, $gold-color 50%, $gold-color-light 100%);
+        border: 1px solid $gold-color-dark;
+    }
+
+    &:nth-of-type(2) {
+        background: linear-gradient(90deg, $silver-color 50%, $silver-color-light 100%);
+        border: 1px solid $silver-color-dark;
+    }
+
+    &:nth-of-type(3) {
+        background: linear-gradient(90deg, $bronze-color 50%, $bronze-color-light 100%);
+        border: 1px solid $bronze-color-dark;
+    }
+
+    p {
+        margin: 0;
+        color: $black-color;
+    }
+}

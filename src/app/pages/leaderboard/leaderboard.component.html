@@ -1,0 +1,14 @@
+<!-- <app-header></app-header> -->
+
+<section class="leaderboard">
+    <h2 class="section-title">Leaderboard</h2>
+    <mat-card class="leaderboard-entry" *ngFor="let entry of leaderboardEntries">
+        <p class="name">{{ entry.displayName }}</p>
+        <p class="coins">
+        <img src="assets/icons/coin.svg" alt="">
+        {{ entry.coins }}
+        </p>
+    </mat-card>
+</section>
+
+<!-- <app-footer></app-footer> -->

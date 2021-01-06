@@ -1,0 +1,12 @@
+@import "src/styles/variables.scss";
+
+.flag-image {
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+}
+
+mat-hint {
+    color: $blue-color;
+    cursor: pointer;
+}

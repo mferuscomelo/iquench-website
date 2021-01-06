@@ -1,0 +1,80 @@
+@import "src/styles/variables.scss";
+
+.dashboard {
+    margin-top: 75px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px;
+
+    .snippet {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+
+        color: $white-color;
+        background-color: $blue-color-light;
+        background-repeat: no-repeat;
+        
+        font-weight: bold;
+        font-size: 1.5em;
+
+        &#fountains-added {
+            background-image: url('/assets/icons/plus-solid.svg');
+            background-position: 175px -30px;
+        }
+
+        &#leaderboard-position {
+            background-image: url('/assets/icons/trophy-solid.svg');
+            background-position: 190px 5px;
+        }
+
+        &#money-saved {
+            background-image: url('/assets/icons/dollar-sign-solid.svg');
+            background-position: 200px 10px;
+        }
+
+        &#bottles-saved {
+            background-image: url('/assets/icons/water-bottle.svg');
+            background-position: 225px 15px;
+            background-size: contain;
+        }
+
+        small {
+            font-weight: normal;
+        }
+    }
+
+    .table {
+        grid-column: 1 / -1;
+
+        table {
+            width: 100%;
+            border-radius: $border-radius !important;
+            overflow: hidden !important;
+            border: 1px solid $blue-color;
+            box-shadow: $shadow !important;
+        }
+
+        mat-chip {
+            &.green {
+                border: 1px solid $green-color;
+                background-color: $green-color-light;
+                color: $green-color;
+            }
+
+            &.yellow {
+                border: 1px solid $yellow-color;
+                background-color: $yellow-color-light;
+                color: $yellow-color;
+            }
+
+            &.red {
+                border: 1px solid $red-color;
+                background-color: $red-color-light;
+                color: $red-color;
+            }
+        }
+    }
+}

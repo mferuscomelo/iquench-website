@@ -1,0 +1,174 @@
+@import "src/styles/variables.scss";
+
+:host {
+    z-index: 99;
+    transition: all 0.3s ease 0s;
+    position: fixed;
+    width: 100%;
+    top: 0;
+
+    background-color: $white-color;
+    box-shadow: $shadow;
+    
+    &.transparent {
+        box-shadow: none;
+        background-color: unset;
+    }
+    
+    nav {
+        &.desktop {
+            height: 50px;
+    
+            padding: 0 50px;
+    
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+    
+            .logo {    
+                img {
+                    height: 35px;
+                }
+            }
+    
+            ul {
+                list-style: none;
+                
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+    
+                .nav-link {
+                    display: inline-block;
+    
+                    padding: 10px 20px;
+    
+                    text-align: center;
+                    white-space: nowrap;
+                    font-size: 16px;
+    
+                    .link {
+                        color: $black-color;
+                        position: relative;
+                        cursor: pointer;
+    
+                        &:hover,
+                        &.active {
+                            color: $blue-color;
+    
+                            &::after {
+                                width: 75%;
+                            }
+                        }
+    
+                        &::after {
+                            content: '';
+                            transition: all 0.3s ease 0s;
+                            position: absolute;
+                            bottom: -6px;
+                            right: 0;
+                            left: 0;
+                            height: 2px;
+                            background-color: $blue-color;
+                            width: 0;
+                            margin: auto;
+                        }
+                    }
+    
+                    .dropdown {
+                        position: relative;
+            
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-end;
+            
+                        &.open .dropdown-content {
+                            opacity: 1;
+                            visibility: visible;
+                            transform: translate(0, calc(100% + 15px));
+                        }
+            
+                        .dropbtn {
+                            cursor: pointer;
+                            transition: all 0.3s ease 0s;
+                            color: $black-color;
+    
+                            &:hover {
+                                color: $blue-color;
+                            }
+                        }
+            
+                        .dropdown-content {
+                            z-index: 10;
+                            position: absolute;
+    
+                            background: rgb(255, 255, 255);
+                            color: $black-color;
+                            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.164);
+                            border-radius: $border-radius;
+                            
+                            bottom: 0;
+                            opacity: 1;
+                            visibility: hidden;
+    
+                            transition: all 0.3s ease;
+                            transform: translate(0, 100%);
+                            
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: flex-start;
+            
+                            padding: 10px 0 10px 0;
+            
+            
+                            &:after {
+                                top: -40px;
+                                opacity: 1;
+                            }
+            
+                            .dropdown-link {
+                                padding: 5px 20px;
+                                color: $black-color;
+                                position: relative;
+                                width: calc(100% - 40px);
+                                text-align: left;
+                                cursor: pointer;
+
+                                &:hover {
+                                    color: $blue-color;
+                                    background-color: $blue-color-extra-light;
+
+                                    &:before {
+                                        content: '';
+                                        width: 3px;
+                                        height: 100%;
+
+                                        position: absolute;
+                                        top: 0;
+                                        left: 0;
+
+                                        background-color: $blue-color;
+                                    }
+                                }
+            
+                                fa-icon {
+                                    margin-right: 15px;
+                                }
+                            }
+            
+                            .dropdown-text {
+                                margin: 10px 20px 5px 20px;
+                            }
+                        }
+                    }
+                }
+    
+                button {
+                    height: 35px;
+                    font-size: 16px !important;
+                }
+            }
+        }
+    }
+}

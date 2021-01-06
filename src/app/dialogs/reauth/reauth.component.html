@@ -1,0 +1,51 @@
+<h3 class="section-title no-margin">Reauthenticate</h3>
+
+<form [formGroup]="form" (ngSubmit)="submit()" class="flex-center">
+    <!-- Email -->
+    <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" type="email">
+        <mat-error *ngIf="email?.hasError('email') && !email?.hasError('required')">
+            Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="email?.hasError('required')">
+            Email is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+
+    <!-- Password -->
+    <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" type="password">
+        <mat-error *ngIf="password?.hasError('pattern') || password?.hasError('minLength') && !password?.hasError('required')">
+            Please enter a valid password
+        </mat-error>
+        <mat-error *ngIf="password?.hasError('required')">
+            Password is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+
+    <!-- <input formControlName="honeyPot" class="hidden" type="text" /> -->
+
+    <button 
+        class="g-recaptcha" 
+        data-sitekey="6LefIAoaAAAAAEwDV77voA1mu5LskiQdBlrVAoOm" 
+        data-callback="submit"
+        data-action="submit"
+        mat-raised-button 
+        color="primary">
+        Log In
+        <fa-icon [icon]="['fas', 'chevron-right']" class="icon-right"></fa-icon>
+    </button>
+
+    <div class="error-dialog" *ngIf="errorMessage">
+        {{ errorMessage }}
+    </div>
+
+    <span class="small" (click)="dialogRef.close()">Cancel</span>
+</form>
+
+<div class="spinner flex-center" *ngIf="isLoading">
+    <mat-spinner></mat-spinner>
+    <p class="text-center">Reauthenticating</p>
+</div>

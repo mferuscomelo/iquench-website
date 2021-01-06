@@ -6,7 +6,19 @@ import { environment } from './environments/environment';
 
 if (environment.production) {
   enableProdMode();
+
+  // if(window){
+  //   window.console.log=function(){};
+  // }
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+// if(window.location.hostname == 'localhost') {
+//   window['ga-disable-G-ZPR9VNN72E'] = true;
+// } else {
+//   window['ga-disable-G-ZPR9VNN72E'] = false;
+// }
+
+document.addEventListener('DOMContentLoaded', () => {
+  platformBrowserDynamic().bootstrapModule(AppModule)
+    .catch(err => console.error(err));
+});

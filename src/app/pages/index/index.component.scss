@@ -1,0 +1,97 @@
+@import "src/styles/variables.scss";
+
+section {
+    &.hero {
+        height: 100%;
+        width: 100%;
+        
+        background-color: $blue-color-light;
+        background-image: url('/assets/images/index/wave-hero.svg');
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: contain;
+    }
+
+    &.three-cards {
+
+        .card {
+            flex-direction: column;
+
+            padding: 25px;
+
+            fa-icon {
+                font-size: 4.5rem;
+                color: $blue-color;
+            }
+
+            .title {
+                font-weight: 500;
+            }
+        }
+    }
+
+    &.testimonials {
+        margin-top: 150px;
+
+        .column {
+            mat-card {
+                background-repeat: no-repeat;
+                background-position: bottom;
+                background-size: contain;
+
+                margin: 0 12.5px;
+
+                width: 320px;
+                height: 400px;
+
+                &.first {
+                    background-image: url('/assets/images/index/wave-testimonial-1.svg');
+                }
+
+                &.second {
+                    background-image: url('/assets/images/index/wave-testimonial-2.svg');
+                }
+
+                &.third {
+                    background-image: url('/assets/images/index/wave-testimonial-3.svg');
+                }
+
+                mat-card-content {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+
+                    height: 100%;
+
+                    fa-icon {
+                        font-size: 1.25rem;
+                        color: $blue-color;
+                        margin-right: auto;
+                    }
+
+                    .testimonial {
+                        font-style: italic;
+                        height: 115px;
+                    }
+
+                    img {
+                        height: 100px;
+                        width: 100px;
+
+                        background-color: $white-color;
+
+                        border-radius: 150%;
+                        border: 5px solid $white-color;
+
+                        margin: 25px 0 0 0;
+                    }
+
+                    .name {
+                        color: $white-color;
+                    }
+                }
+            }
+        }
+    }
+}

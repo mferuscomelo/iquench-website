@@ -1,0 +1,71 @@
+@import "src/styles/variables.scss";
+
+:host {
+    background-image: url('/assets/images/footer/wave.svg');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    background-color: $blue-color;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+
+    min-height: 500px;
+
+    mat-card {
+        padding: 25px 50px;
+
+        mat-card-content {
+            .form {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                mat-form-field {
+                    width: 75%;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+
+    .content {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+
+        .socials {
+            width: 150px;
+
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+
+            margin: 10px auto;
+
+            fa-icon {
+                font-size: 1.5rem;
+                color: $white-color;
+            }
+        }
+
+        .links,
+        .terms {
+            color: $white-color;
+            font-size: 0.6rem;
+
+            a {
+                color: $white-color;
+            }
+        }
+
+        .copyright {
+            font-size: 0.5rem;
+            color: $white-color;
+            margin: 10px auto;
+        }
+    }
+}
