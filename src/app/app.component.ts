@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
 
   showHeader = true;
   showFooter = true;
+  isTransparent = false;
 
   constructor(
     private authService: AuthService,
@@ -23,6 +24,9 @@ export class AppComponent implements OnInit {
         if (event instanceof NavigationEnd) {
           if(event.url == '/map') {
             this.showFooter = false;
+          }
+          if(event.url == '/') {
+            this.isTransparent = true;
           }
         }
       });

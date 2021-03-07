@@ -1,8 +1,23 @@
 <!-- <app-header class="transparent"></app-header> -->
 
-<section class="hero">
-
+<section class="hero flex-center">
+    <div class="content">
+        <h1 class="mat-display-4">Fill up on the go</h1>
+        <h2 class="mat-display-1">The ultimate resource for outdoor enthusiasts to find publicly available drinking water fountains</h2>
+        <div class="cta flex-center">
+            <mat-form-field appearance="outline" class="no-padding">
+                <mat-label>Find a water fountain near you</mat-label>
+                <input matInput type="text">
+            </mat-form-field>
+            <button mat-flat-button color="primary">
+                Let's Go
+                <fa-icon [icon]="['fas', 'chevron-right']" class="icon-right"></fa-icon>
+            </button>
+        </div>
+    </div>
 </section>
+
+<img class="hero-divider" src="/assets/images/index/wave-hero.svg" alt="">
 
 <section class="three-cards">
     <div class="column-container">

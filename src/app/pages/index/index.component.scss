@@ -6,10 +6,27 @@ section {
         width: 100%;
         
         background-color: $blue-color-light;
-        background-image: url('/assets/images/index/wave-hero.svg');
-        background-repeat: no-repeat;
-        background-position: bottom;
-        background-size: contain;
+        // background-image: url('/assets/images/index/wave-hero.svg');
+        // background-repeat: no-repeat;
+        // background-position: bottom;
+        // background-size: contain;
+
+        .content {
+            max-width: 90%;
+            color: $black-color;
+
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+
+            .cta {
+
+                button {
+                    margin-left: 5px;
+                }
+            }
+        }
     }
 
     &.three-cards {
@@ -94,4 +111,9 @@ section {
             }
         }
     }
+}
+
+.hero-divider {
+    width: 100%;
+    transform: scaleY(-1);
 }
