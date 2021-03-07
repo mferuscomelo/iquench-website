@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Loader } from "@googlemaps/js-api-loader"
 import { environment } from 'src/environments/environment';
-import {} from 'googlemaps';
+import { } from 'googlemaps';
 import { Location } from 'src/app/interfaces/location';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { OsmService } from 'src/app/services/osm.service';
@@ -52,10 +52,10 @@ export class MapComponent implements OnInit {
       mapIds: ['3da4417dac4fdc29']
     });
 
-    loader.load().then( () => {
+    loader.load().then(() => {
       // Initialize the map
       this.map = new google.maps.Map(document.getElementById('main-map') as HTMLElement, {
-        center: {lat: 37.8199, lng: -122.4783},
+        center: { lat: 37.8199, lng: -122.4783 },
         zoom: 10,
         mapId: '3da4417dac4fdc29'
       } as google.maps.MapOptions);
@@ -65,7 +65,7 @@ export class MapComponent implements OnInit {
         url: 'assets/icons/map-marker-blue.png',
         scaledSize: new google.maps.Size(27, 36),
       }
-    
+
       this.greyMarker = {
         url: 'assets/icons/map-marker-grey.png',
         scaledSize: new google.maps.Size(27, 36),
@@ -75,7 +75,7 @@ export class MapComponent implements OnInit {
         url: 'assets/icons/map-marker-red.png',
         scaledSize: new google.maps.Size(27, 36),
       }
-      
+
       // Initialize the MarkerClusterer
       this.markerCluster = new MarkerClusterer(this.map, undefined, {
         imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m',
@@ -84,57 +84,57 @@ export class MapComponent implements OnInit {
       this.getLocations();
 
       this.map.addListener('idle', async () => {
-        if(this.map.getZoom() >= 10) {
+        if (this.map.getZoom() >= 10) {
           const locations: Location[] = await this.getOSMData();
           this.showLocations(locations);
         }
       });
 
-      // Getting User location
-      const data: PopupData = {
-        icon: 'warning',
-        title: 'Share Location',
-        text: 'Please share your location so we can better help you.',
-        confirmButtonText: 'Ok',
-        cancelButtonText: 'No, thank you',
-      }
-      let dialogRef: MatDialogRef<DialogComponent>;
-  
-      const nudgeTimeout = setTimeout( () => {
-        dialogRef = this.dialog.open(DialogComponent, { data })
-      }, 5000);
-  
-      const geoSuccess: PositionCallback = (position) => {
-        dialogRef?.close();
-        clearTimeout(nudgeTimeout);
-        
-        const myCoords = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-  
-        // Move and recenter map
-        this.map.setZoom(15);
-        this.map.panTo(myCoords);
-  
-        // Show user location
-        if(this.myLocationMarker)
-          this.myLocationMarker.setPosition(myCoords)
-        else
-          this.myLocationMarker = new google.maps.Marker({
-            position: myCoords,
-            icon: this.myMarker,
-            map: this.map
-          })
-      }
-  
-      const geoError: PositionErrorCallback = (error) => {
-        switch (error.code) {
-          case error.TIMEOUT:
-            dialogRef = this.dialog.open(DialogComponent, { data })
-            break;
-        }
-      }
-  
-      navigator.geolocation.watchPosition(geoSuccess, geoError);
-    }); 
+      // // Getting User location
+      // const data: PopupData = {
+      //   icon: 'warning',
+      //   title: 'Share Location',
+      //   text: 'Please share your location so we can better help you.',
+      //   confirmButtonText: 'Ok',
+      //   cancelButtonText: 'No, thank you',
+      // }
+      // let dialogRef: MatDialogRef<DialogComponent>;
+
+      // const nudgeTimeout = setTimeout( () => {
+      //   dialogRef = this.dialog.open(DialogComponent, { data })
+      // }, 5000);
+
+      // const geoSuccess: PositionCallback = (position) => {
+      //   dialogRef?.close();
+      //   clearTimeout(nudgeTimeout);
+
+      //   const myCoords = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+      //   // Move and recenter map
+      //   this.map.setZoom(15);
+      //   this.map.panTo(myCoords);
+
+      //   // Show user location
+      //   if(this.myLocationMarker)
+      //     this.myLocationMarker.setPosition(myCoords)
+      //   else
+      //     this.myLocationMarker = new google.maps.Marker({
+      //       position: myCoords,
+      //       icon: this.myMarker,
+      //       map: this.map
+      //     })
+      // }
+
+      // const geoError: PositionErrorCallback = (error) => {
+      //   switch (error.code) {
+      //     case error.TIMEOUT:
+      //       dialogRef = this.dialog.open(DialogComponent, { data })
+      //       break;
+      //   }
+      // }
+
+      // navigator.geolocation.watchPosition(geoSuccess, geoError);
+    });
 
   }
 
@@ -169,7 +169,7 @@ export class MapComponent implements OnInit {
   async showLocations(locations: Location[]) {
     let markers: google.maps.Marker[] = [];
 
-    locations.forEach( (location: Location) => {
+    locations.forEach((location: Location) => {
       const marker = new google.maps.Marker({
         position: new google.maps.LatLng(location.latLng.latitude, location.latLng.longitude),
         icon: location.isOperational ? this.blueMarker : this.greyMarker,
@@ -218,7 +218,7 @@ export class MapComponent implements OnInit {
     var dim_sq;
     var additionalRange;
 
-    if(height >= width) {
+    if (height >= width) {
       dim_sq = height + (buffer / 2);
       additionalRange = (dim_sq - width) / 2;
 
