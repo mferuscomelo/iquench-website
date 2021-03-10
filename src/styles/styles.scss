@@ -192,7 +192,9 @@ button {
     height: 50px;
     font-size: 20px !important;
     padding: 0 25px !important;
-    border-radius: $border-radius !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .mat-stroked-button {
@@ -202,6 +204,10 @@ button {
 fa-icon {
     &.icon-right {
         margin-left: 15px;
+    }
+
+    &.icon-left {
+        margin-right: 15px;
     }
 
     &.icon-end {
@@ -376,4 +382,10 @@ fa-icon {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
+}
+
+.flex-start {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
 }

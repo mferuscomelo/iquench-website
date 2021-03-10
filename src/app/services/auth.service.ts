@@ -156,6 +156,19 @@ export class AuthService implements OnDestroy {
       })
   }
 
+  async guestLogIn() {
+    return this.auth.signInAnonymously()
+      .then( async (credential) => {
+        this.analytics.logEvent('logged_in', { method: 'anonymous' });
+
+        const firebaseUser = credential.user;
+        if(firebaseUser) {
+          const user = await this.createUserFromFirebaseUser(firebaseUser);
+          this.updateUserData(user);
+        }
+      });
+  }
+
   // END LOG IN METHODS
 
   // START REAUTH METHODS

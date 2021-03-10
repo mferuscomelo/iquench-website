@@ -20,6 +20,9 @@ import { faCheckCircle as fasCheckCircle } from '@fortawesome/free-solid-svg-ico
 import { faTree as fasTree } from '@fortawesome/free-solid-svg-icons';
 import { faMapMarkerAlt as fasMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { faQuoteLeft as fasQuoteLeft } from '@fortawesome/free-solid-svg-icons';
+import { faPlus as fasPlus } from '@fortawesome/free-solid-svg-icons';
+import { faUser as fasUser } from '@fortawesome/free-solid-svg-icons';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 
 @NgModule({
   exports: [
@@ -46,7 +49,10 @@ export class FaComponentsModule {
       fasCheckCircle,
       fasTree,
       fasMapMarkerAlt,
-      fasQuoteLeft
+      fasQuoteLeft,
+      fasPlus,
+      fasUser,
+      faGoogle
     );
   }
 }

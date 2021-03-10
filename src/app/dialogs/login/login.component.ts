@@ -34,7 +34,9 @@ export class LoginComponent implements OnInit {
     ).subscribe( (isLoggedIn) => {
       if(isLoggedIn) {
         this.isLoading = false;
-        this.dialogRef.close();
+        this.dialogRef.close({
+          isLoggedIn: true
+        });
       }
     });
 
@@ -113,6 +115,23 @@ export class LoginComponent implements OnInit {
           
           case 'auth/unauthorized-domain':
             console.error('Unauthorized domain. Message: ', error.message)
+            break;
+        
+          default:
+
+            break;
+        }
+      });
+  }
+
+  guestLogIn() {
+    this.authService.guestLogIn()
+      .catch( (error) => {
+        console.error('Error logging in: ', error);
+
+        switch (error.code) {
+          case 'auth/operation-not-allowed':
+            console.error('Operation not allowed. Message: ', error.message)
             break;
         
           default:
