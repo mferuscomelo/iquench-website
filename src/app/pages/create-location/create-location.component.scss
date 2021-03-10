@@ -1,0 +1,29 @@
+#selector-map {
+  margin-top: 50px;
+  height: calc(100% - 50px);
+  width: 100%;
+}
+
+.confirm-button {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+mat-card {
+  margin: 50px;
+}
+
+form {
+  font-size: 20px; 
+
+  mat-form-field,
+  mat-checkbox {
+    width: 100%;
+  }
+
+  mat-checkbox {
+    margin-bottom: 25px;
+  }
+}

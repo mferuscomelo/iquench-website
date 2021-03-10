@@ -25,6 +25,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/settings/settings.module').then(m => m.SettingsModule),
     canActivate: [AuthGuard]
   },
+  { path: 'create-location', loadChildren: () => import('./pages/create-location/create-location.module').then(m => m.CreateLocationModule) },
 ];
 
 @NgModule({

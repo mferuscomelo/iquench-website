@@ -1,0 +1,31 @@
+<ng-container *ngIf="!isConfirmed">
+  <div id="selector-map"></div>
+  <button class="confirm-button" mat-raised-button color="primary" (click)="confirmLocation()" *ngIf="isPlaced">
+    Confirm Location
+  </button>
+</ng-container>
+
+<mat-card *ngIf="isConfirmed">
+  <mat-card-content>
+    <form [formGroup]="form" (ngSubmit)="submit()" class="flex-start">
+      <mat-form-field appearance="outline">
+        <mat-label>Location</mat-label>
+        <input matInput formControlName="latLng" type="text">
+      </mat-form-field>
+      <mat-checkbox formControlName="isOperational">
+        The water fountain is operational
+      </mat-checkbox>
+      <mat-form-field appearance="outline" class="message-input">
+        <mat-label>Notes</mat-label>
+        <textarea matInput formControlName="notes"></textarea>
+      </mat-form-field>
+      <input formControlName="honeyPot" class="hidden" type="text" />
+    
+      <button class="g-recaptcha" data-sitekey="6LefIAoaAAAAAEwDV77voA1mu5LskiQdBlrVAoOm" data-callback="submit"
+        data-action="submit" mat-raised-button color="primary">
+        Submit Location
+        <fa-icon [icon]="['fas', 'chevron-right']" class="icon-right"></fa-icon>
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>

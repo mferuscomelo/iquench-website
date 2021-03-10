@@ -242,4 +242,14 @@ export class MapComponent implements OnInit {
     return new_sw.toUrlValue(14) + ',' + new_ne.toUrlValue(14);
   }
 
+  createLocation() {
+    this.router.navigate(['/create-location'], {
+      state: {
+        zoom: this.map.getZoom(),
+        lat: this.map.getCenter().lat(),
+        lng: this.map.getCenter().lng()
+      }
+    });
+  }
+
 }
