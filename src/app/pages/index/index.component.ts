@@ -2,6 +2,9 @@ import { ViewportScroller } from '@angular/common';
 import { AfterContentInit, Component, HostListener, Inject, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { FirestoreService } from 'src/app/services/firestore.service';
+import firebase from 'firebase/app';
+import 'firebase/firestore';
 
 @Component({
   selector: 'app-index',
@@ -14,7 +17,8 @@ export class IndexComponent implements OnInit, AfterContentInit {
     private viewPortScroller: ViewportScroller,
     private meta: Meta,
     private titleService: Title,
-    private router: Router
+    private router: Router,
+    private firestoreService: FirestoreService
   ) { }
   
   ngOnInit(): void { 
@@ -33,6 +37,9 @@ export class IndexComponent implements OnInit, AfterContentInit {
           header.classList.add('transparent');
       }
     });
+
+    // const testLatLng = new firebase.firestore.GeoPoint(-28.861600019433318, 153.53492836886144);
+    // this.firestoreService.isLocationPossible(testLatLng);
   }
 
   initSEO() {
