@@ -44,7 +44,7 @@
     "express": "^4.15.2",
     "firebase": "^8.2.1",
     "globalthis": "^1.0.1",
-    "pwa-asset-generator": "^4.0.2",
+    "pwa-asset-generator": "^6.0.7",
     "rxjs": "^6.6.3",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
