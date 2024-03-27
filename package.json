@@ -41,7 +41,7 @@
     "@googlemaps/markerclustererplus": "^1.0.3",
     "@nguniversal/express-engine": "^11.0.1",
     "domino": "^2.1.6",
-    "express": "^4.15.2",
+    "express": "^4.19.2",
     "firebase": "^8.2.1",
     "globalthis": "^1.0.1",
     "pwa-asset-generator": "^4.0.2",
